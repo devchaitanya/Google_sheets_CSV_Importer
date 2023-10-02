@@ -13,13 +13,15 @@ function showSidebar() {
       .setWidth(300);
   SpreadsheetApp.getUi().showSidebar(html);
 }
-
 function processCSVFile(csv, columns, sheetName, append, filters) {
   // Parse the CSV data
   var data = Utilities.parseCsv(csv);
   
   // Get the sheet to write the data to
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+  if (!sheet) {
+    sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet(sheetName);
+  }
   
   // Select the specified columns from the CSV data
   var selectedData = [];
