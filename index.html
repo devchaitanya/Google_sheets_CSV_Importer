@@ -92,11 +92,12 @@
     <div class="form-group">
       <label for="appendInput">Append to existing data?</label>
       <input type="checkbox" id="appendInput">
+      <div class="help-text">if you want to append to an existing data click it . (if there is existing data in the sheet is will show error be careful)</div>
     </div>
     <div class="form-group">
       <label for="filtersInput">Enter the filters to apply:</label>
       <input type="text" id="filtersInput" placeholder="e.g. category=electronics">
-      <div class="help-text">Enter the filters to apply, separated by commas. For example, to import only rows where the "category" column equals "electronics", enter "category=electronics".</div>
+      <div class="help-text">Enter the filters to apply, separated by commas. For example, to import only rows where the "category" column equals "electronics", enter "category=electronics". If you leave it Empty it will remove the filters</div>
     </div>
     <input type="submit" value="Import">
   </form>
