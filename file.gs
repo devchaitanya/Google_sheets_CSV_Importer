@@ -1,3 +1,19 @@
+// Function to create a custom menu in the Google Sheets UI
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('CSV Importer')
+      .addItem('Import CSV', 'showSidebar')
+      .addToUi();
+}
+
+// Function to display a sidebar containing an HTML form for importing CSV files
+function showSidebar() {
+  var html = HtmlService.createHtmlOutputFromFile('index')
+      .setTitle('CSV Importer')
+      .setWidth(300);
+  SpreadsheetApp.getUi().showSidebar(html);
+}
+
 function processCSVFile(csv, columns, sheetName, append, filters) {
   // Parse the CSV data
   var data = Utilities.parseCsv(csv);
